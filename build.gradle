@@ -1,0 +1,56 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	
+}
+
+
+plugins {
+	id "org.springframework.boot" version "2.0.1.RELEASE"
+}
+
+version = '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
+
+
+bootJar {
+	mainClassName = 'com.buildit.webcrawler.Application'
+	baseName = 'WebCrawler'
+	version =  version
+}
+
+war {
+	archiveName = 'WebCrawler.war'
+}
+
+jar {
+  baseName = 'boot-gradle'
+  version = version
+}
+
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	//testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile(
+			'junit:junit:4.12',
+			'org.springframework.boot:spring-boot-starter-test',
+			)
+	compile 'junit:junit:4.12'
+	compile 'org.jsoup:jsoup:1.8.3'	
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+}
