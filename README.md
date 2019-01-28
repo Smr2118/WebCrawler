@@ -18,12 +18,8 @@ git clone https://github.com/Smr2118/WebCrawler.git
 
 In command line , cd to the root of the project (WebCrawler folder)
 
-Execute either :
+Execute :
 
-gradle clean compileJava bootjar
-java -jar build/libs/WebCrawler-0.0.1.jar
-
-OR :
 gradlew bootrun
 
 This will start an instance of the spring boot application on tomcat . It will run in port 8080.
